@@ -13,10 +13,12 @@ function main() {
 
   // 2. Render the scene
   document.getElementById("trigger-render").addEventListener("click",(event)=> {  
+    // change the button color
     event.target.style.background = 'lightgrey';
     event.target.style.color = 'grey';
     event.target.style.border = 'none';
     event.target.innerHTML = 'rendered!'
+    // render the world
     world.render();
   });
 }

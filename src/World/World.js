@@ -1,9 +1,13 @@
 import { createCamera } from './components/camera.js';
 import { createCube } from './components/cube.js';
+import { createLights } from './components/light.js';
 import { createScene } from './components/scene.js';
 
 import { createRenderer } from './systems/renderer.js';
 import { Resizer } from './systems/Resizer.js';
+
+
+import {DirectionalLightHelper,AmbientLight} from 'three'
 
 // These variables are module-scoped: we cannot access them
 // from outside the module
@@ -18,8 +22,11 @@ class World {
     renderer = createRenderer();
     container.append(renderer.domElement);
 
-    const cube = createCube();
+    // light = createLights();
+    const light = createLights();
+    scene.add( light );
 
+    const cube = createCube();
     scene.add(cube);
 
     const resizer = new Resizer(container, camera, renderer);
